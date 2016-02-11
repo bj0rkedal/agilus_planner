@@ -1,0 +1,12 @@
+<launch>
+  <node name="robot_service_ag1" pkg="agilus_planner" type="agilus_robot_movement_service" output="screen">
+	<param name="group_name" value="agilus1"/>
+	
+  </node>
+
+  <node name="robot_service_ag2" pkg="agilus_planner" type="agilus_robot_movement_service" output="screen">
+	<param name="group_name" value="agilus2"/>
+	
+  </node>
+
+</launch>
