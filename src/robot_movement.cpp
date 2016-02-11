@@ -73,55 +73,52 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "robot_movement_service");
     ros::NodeHandle node_handle("~");
 
-    // Initializing robot arguments
-    std::string group_name;
+    // Initializing robot arguments used if ROS server has no parameters
+    std::string group_name = "manipulator";
     double max_vel_scale_factor = 0.1;
     int planning_time = 10;
     int num_planning_attempts = 5;
-//    ih::RobotOptionFlag options =
-//            ih::RobotOptionFlag::ROBOT_OPTION_DUMMY_ROBOT;
     int options = 2;
 
-    node_handle.getParam("group_name", group_name);
-    node_handle.setParam("max_vel_scale_factor", max_vel_scale_factor);
-    node_handle.setParam("planning_time", planning_time);
-    node_handle.setParam("num_planning_attempts", num_planning_attempts);
+    // Get or set group_name
+    if (node_handle.hasParam("group_name")) {
+        node_handle.getParam("group_name", group_name);
+        ROS_INFO("Got group_name: %s", group_name.c_str());
+    }
+    else {
+        node_handle.setParam("group_name", group_name);
+        ROS_INFO("No group_name found. Default used: %s", group_name.c_str());
+    }
+    // Get or set max_vel_scale_factor
+    if (node_handle.hasParam("max_vel_scale_factor")) {
+        node_handle.getParam("max_vel_scale_factor", max_vel_scale_factor);
+        ROS_INFO("Got max_vel_scale_factor: %f", max_vel_scale_factor);
+    }
+    else {
+        node_handle.setParam("max_vel_scale_factor", max_vel_scale_factor);
+        ROS_INFO("No max_vel_scale_factor found. Default used: %f", max_vel_scale_factor);
+    }
+    // Get or set planning_time
+    if (node_handle.hasParam("planning_time")) {
+        node_handle.getParam("planning_time", planning_time);
+        ROS_INFO("Got planning_time: %d", planning_time);
+    }
+    else {
+        node_handle.setParam("planning_time", planning_time);
+        ROS_INFO("No planning_time found. Default used: %d", planning_time);
+    }
+    // Get or set planning_time
+    if (node_handle.hasParam("num_planning_attempts")) {
+        node_handle.getParam("num_planning_attempts", num_planning_attempts);
+        ROS_INFO("Got num_planning_attempts: %d", num_planning_attempts);
+    }
+    else {
+        node_handle.setParam("num_planning_attempts", num_planning_attempts);
+        ROS_INFO("No num_planning_attempts found. Default used: %d", num_planning_attempts);
+    }
+    // Set options regardless of server parameter
     node_handle.setParam("options", options);
 
-    ROS_INFO("Testing");
-
-    // Grabbing robot arguments from parameter server
-//	if( node_handle.hasParam("group_name") ){
-//		node_handle.getParam("group_name", group_name);
-//	}
-//	if( node_handle.hasParam("max_vel_scale_factor") ){
-//		node_handle.getParam("max_vel_scale_factor", max_vel_scale_factor);
-//	}
-//	if( node_handle.hasParam("planning_time") ){
-//		node_handle.getParam("planning_time", planning_time);
-//	}
-//	if( node_handle.hasParam("num_planning_attempts") ){
-//		node_handle.getParam("num_planning_attempts", num_planning_attempts);
-//	}
-//	if( node_handle.hasParam("options") ){
-//		node_handle.getParam("options", options);
-//	}
-
-//    ROS_INFO("%d", node_handle.getParam("group_name", group_name));
-//    node_handle.getParam("max_vel_scale_factor", max_vel_scale_factor);
-//    node_handle.getParam("planning_time", planning_time);
-//    node_handle.getParam("num_planning_attempts", num_planning_attempts);
-//    node_handle.getParam("options", options);
-
-    std::string key;
-    if (node_handle.searchParam("", key)) {
-        std::string val;
-        node_handle.getParam(key, val);
-    }
-
-    //ros::spin();
-    ROS_INFO("%s\n%f\n%d\n%d\n%d\n", group_name.c_str(), max_vel_scale_factor, planning_time, num_planning_attempts,
-             options);
     // Initializing robot
     robot = new ih::RobotPlanningExecution(
             group_name,
