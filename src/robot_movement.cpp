@@ -131,7 +131,7 @@ int main(int argc, char **argv) {
     ros::ServiceServer goto_service = node_handle.advertiseService("go_to_pose", goToPoseService);
     ros::ServiceServer plan_service = node_handle.advertiseService("plan_pose", planPoseService);
 
-    ROS_INFO("robot_movement_service ready to use");
+    ROS_INFO("robot_movement_service ready to use for: %s", group_name.c_str());
     ros::spin();
 
     return 0;
