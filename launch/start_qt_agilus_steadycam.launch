@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+   	<include file="$(find steadycam)/launch/steadycam.launch">
+   	</include>
+
+	<node name="qt_agilus_planner" pkg="qt_agilus_planner" type="qt_agilus_planner" 		output="screen"/>
+
+</launch>
