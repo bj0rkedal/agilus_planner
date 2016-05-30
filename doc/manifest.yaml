@@ -1,0 +1,18 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: ''
+depends:
+- std_msgs
+- rospy
+- roscpp
+- catkin
+description: The agilus_planner package
+license: TODO
+maintainers: "Asgeir Bj\xF8rkedal <asgeir.92@gmail.com>"
+msgs: []
+package_type: package
+repo_url: ''
+srvs:
+- Pose
+url: ''

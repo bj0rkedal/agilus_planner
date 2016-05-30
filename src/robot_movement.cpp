@@ -1,8 +1,19 @@
+//
+// Original author: Adam Leon Kleppe. Last edit by: Asgeir Bjoerkedal at 30.05.16.
+//
+// A ROS node advertising the trajectory planning and execution, as defined in robot_planning_execution.hpp,
+// as ROS services for simple interfacing with other ROS nodes.
+//
 #include "agilus_planner/Pose.h"
-#include "robot_planning_execution.hpp"
+#include "../include/agilus_planner/robot_planning_execution.hpp"
 
 ih::RobotPlanningExecution *robot;
 
+/*!
+ * \brief Callback method for planning of a trajectory. The plan will only be visualized in MoveIt!.
+ * \param req The service request. Set the desired pose of the manipulator.
+ * \param res The service response. Returns the fraction of the trajectory which is feasible.
+ */
 bool planPoseService(agilus_planner::Pose::Request &req, agilus_planner::Pose::Response &res) {
     if ((bool) !req.relative) {
         if ((bool) req.set_position && (bool) !req.set_orientation) {
@@ -36,6 +47,11 @@ bool planPoseService(agilus_planner::Pose::Request &req, agilus_planner::Pose::R
     }
 }
 
+/*!
+ * \brief Callback method for planning and execution of a trajectory. The trajectory be executed.
+ * \param req The service request. Set the desired pose of the manipulator.
+ * \param res The service response. Returns the fraction of the trajectory which is feasible.
+ */
 bool goToPoseService(agilus_planner::Pose::Request &req, agilus_planner::Pose::Response &res) {
     if ((bool) !req.relative) {
         if ((bool) req.set_position && (bool) !req.set_orientation) {

@@ -1,4 +1,9 @@
-#include "robot_planning_execution.hpp"
+//
+// Original author: Adam Leon Kleppe
+//
+// Used in the Master's thesis for planning and execution of trajectories in MoveIt! for ROS.
+//
+#include "../include/agilus_planner/robot_planning_execution.hpp"
 
 namespace ih {
 //*********************************************************************************************************************

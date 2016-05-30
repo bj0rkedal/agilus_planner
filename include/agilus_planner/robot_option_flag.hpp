@@ -1,3 +1,8 @@
+//
+// Original author: Adam Leon Kleppe
+//
+// Used in the Master's thesis for planning and execution of trajectories in MoveIt! for ROS.
+//
 #ifndef __IRONHIDE__ROBOT_OPTION_FLAG_HPP__
 #define __IRONHIDE__ROBOT_OPTION_FLAG_HPP__
 namespace ih
