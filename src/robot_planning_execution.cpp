@@ -79,6 +79,32 @@ namespace ih {
         return fraction;
     }
 
+    const bool RobotPlanningExecution::planPose() const
+    {
+        moveit::planning_interface::MoveGroup::Plan my_plan;
+        bool success = this->move_group_.plan(my_plan);
+        ROS_INFO("Visualizing plan 1 (pose goal) %s",success?"":"FAILED");
+        return success;
+    }
+
+    const bool RobotPlanningExecution::planPoseByPosRot(const double pos_x, const double pos_y, const double pos_z,
+                                                          const double rot_r, const double rot_p, const double rot_y) const
+    {
+        this->move_group_.setStartStateToCurrentState();
+
+        geometry_msgs::Pose target_pose;
+        target_pose.position.x = pos_x;
+        target_pose.position.y = pos_y;
+        target_pose.position.z = pos_z;
+        target_pose.orientation = this->QuaternionFromRPY(rot_r, rot_p, rot_y);
+        this->move_group_.setPoseTarget(target_pose);
+
+        moveit::planning_interface::MoveGroup::Plan my_plan;
+        bool success = this->move_group_.plan(my_plan);
+        ROS_INFO("Visualizing plan 1 (pose goal) %s",success?"":"FAILED");
+        return success;
+    }
+
     const double    RobotPlanningExecution::planPoseByXYZRPY(
             const double pos_x, const double pos_y, const double pos_z,
             const double rot_r, const double rot_p, const double rot_y,

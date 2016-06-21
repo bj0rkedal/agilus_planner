@@ -157,6 +157,12 @@ namespace ih {
                 const geometry_msgs::Pose &target_pose,
                 moveit::planning_interface::MoveGroup::Plan *trajectory_plan = NULL) const;
 
+        const bool planPose() const;
+
+        const bool planPoseByPosRot(
+                const double pos_x, const double pos_y, const double pos_z,
+                const double rot_r, const double rot_p, const double rot_y) const;
+
         //! Plans the trajectory to the target pose
         /*!
          * \param pos_x The target x position.
