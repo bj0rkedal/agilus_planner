@@ -157,12 +157,6 @@ namespace ih {
                 const geometry_msgs::Pose &target_pose,
                 moveit::planning_interface::MoveGroup::Plan *trajectory_plan = NULL) const;
 
-        const bool planPose() const;
-
-        const bool planPoseByPosRot(
-                const double pos_x, const double pos_y, const double pos_z,
-                const double rot_r, const double rot_p, const double rot_y) const;
-
         //! Plans the trajectory to the target pose
         /*!
          * \param pos_x The target x position.
@@ -268,6 +262,30 @@ namespace ih {
         const double planRelativePoseByQuaternion(
                 const double rot_x, const double rot_y, const double rot_z, const double rot_w,
                 moveit::planning_interface::MoveGroup::Plan *trajectory_plan = NULL) const;
+
+        //! Plans a PTP trajectory in world coordinates. The trajectory is visualized in MoveIt!
+        /*!
+         * \param x The target world x coordinate.
+         * \param y The target world y coordinate.
+         * \param z The target world z coordinate.
+         * \param roll The target roll in radians.
+         * \param pitch The target pitch in radians.
+         * \param yaw The target yaw in radians.
+         * \return True if the plan is successful and feasible. False if the plan is not successful.
+         */
+        const bool planPosePTP(double x, double y, double z, double roll, double pitch, double yaw) const;
+
+        //! Plans a trajectory from current pose to home pose. The trajectory is visalized in MoveIt!
+        /*!
+         * \return True if the plan is successful and feasible. False if the plan is not successful.
+         */
+        const bool homeRobot() const;
+
+        //! Command the robot to execute the current plan of the move group.
+        /*!
+         * \param max_velocity_scale_factor The movement velocity of the robot. 0.1 is equal to 10%.
+         */
+        const void moveRobot(double max_velocity_scale_factor) const;
 
     private:
         //! Checks if the instance has flagged an option

@@ -139,6 +139,7 @@ link_directories(${EIGEN_LIBRARY_DIRS})
 ## Declare a C++ executable
 add_executable(agilus_robot_movement_service include/agilus_planner/robot_option_flag.hpp include/agilus_planner/robot_planning_execution.hpp
 src/robot_planning_execution.cpp src/robot_movement.cpp)
+add_executable(robot_planning src/robot_planning.cpp src/robot_planning_execution.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -147,6 +148,9 @@ src/robot_planning_execution.cpp src/robot_movement.cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(agilus_robot_movement_service
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(robot_planning
   ${catkin_LIBRARIES}
 )
 

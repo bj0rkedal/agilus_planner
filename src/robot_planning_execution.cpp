@@ -40,7 +40,10 @@ namespace ih {
         return this->move_group_.getCurrentPose().pose;
     }
 
-// All plan functions will plan a linear trajectory to the give pose and output the resulting plan
+//*********************************************************************************************************************
+// LIN
+//*********************************************************************************************************************
+// All below plan functions will plan a linear trajectory to the give pose and output the resulting plan
 // in the trajectory_plan variable.
 // The returned value is the fraction of the plan which is feasible. 
     const double    RobotPlanningExecution::planPoseByPose(
@@ -62,47 +65,22 @@ namespace ih {
         }
 
         if (this->isOption(ROBOT_OPTION_VERBOSE_INFO)) {
-            ROS_INFO("Visualizing plan (%.2f%% acheived)", fraction * 100.0);
-            ROS_INFO("POSE: \n\tPos: x=%f, y=%f, z=%f,\n\t Rot: x=%f, y=%f, z=%f, w=%f",
-                     target_pose.position.x,
-                     target_pose.position.y,
-                     target_pose.position.z,
-                     target_pose.orientation.x,
-                     target_pose.orientation.y,
-                     target_pose.orientation.z,
-                     target_pose.orientation.w);
+            ROS_INFO(
+                    "Visualizing LIN plan (%.2f%% acheived)\n\t Pos: x=%f, y=%f, z=%f,\n\t Rot: x=%f, y=%f, z=%f, w=%f",
+                    fraction * 100.0,
+                    target_pose.position.x,
+                    target_pose.position.y,
+                    target_pose.position.z,
+                    target_pose.orientation.x,
+                    target_pose.orientation.y,
+                    target_pose.orientation.z,
+                    target_pose.orientation.w);
             if (fraction < 1.0) {
                 ROS_WARN("Plan not fully feasible");
             }
         }
 
         return fraction;
-    }
-
-    const bool RobotPlanningExecution::planPose() const
-    {
-        moveit::planning_interface::MoveGroup::Plan my_plan;
-        bool success = this->move_group_.plan(my_plan);
-        ROS_INFO("Visualizing plan 1 (pose goal) %s",success?"":"FAILED");
-        return success;
-    }
-
-    const bool RobotPlanningExecution::planPoseByPosRot(const double pos_x, const double pos_y, const double pos_z,
-                                                          const double rot_r, const double rot_p, const double rot_y) const
-    {
-        this->move_group_.setStartStateToCurrentState();
-
-        geometry_msgs::Pose target_pose;
-        target_pose.position.x = pos_x;
-        target_pose.position.y = pos_y;
-        target_pose.position.z = pos_z;
-        target_pose.orientation = this->QuaternionFromRPY(rot_r, rot_p, rot_y);
-        this->move_group_.setPoseTarget(target_pose);
-
-        moveit::planning_interface::MoveGroup::Plan my_plan;
-        bool success = this->move_group_.plan(my_plan);
-        ROS_INFO("Visualizing plan 1 (pose goal) %s",success?"":"FAILED");
-        return success;
     }
 
     const double    RobotPlanningExecution::planPoseByXYZRPY(
@@ -341,6 +319,65 @@ namespace ih {
         }
         ros::Duration(0.5).sleep();
         return fraction;
+    }
+
+//*********************************************************************************************************************
+// PTP
+//*********************************************************************************************************************
+    const bool RobotPlanningExecution::planPosePTP(double x, double y, double z, double roll, double pitch,
+                                                   double yaw) const {
+        geometry_msgs::Pose target_pose;
+        target_pose.orientation = QuaternionFromRPY(roll, pitch, yaw);
+        target_pose.position.x = x;
+        target_pose.position.y = y;
+        target_pose.position.z = z;
+        move_group_.setPoseTarget(target_pose);
+        moveit::planning_interface::MoveGroup::Plan pose_plan;
+        bool success = move_group_.plan(pose_plan);
+
+        ROS_INFO("Visualizing PTP plan (pose goal) %s \n\t Pos: x=%f, y=%f, z=%f,\n\t Rot: x=%f, y=%f, z=%f, w=%f",
+                 success ? "" : "FAILED",
+                 target_pose.position.x,
+                 target_pose.position.y,
+                 target_pose.position.z,
+                 target_pose.orientation.x,
+                 target_pose.orientation.y,
+                 target_pose.orientation.z,
+                 target_pose.orientation.w);
+        return success;
+    }
+
+    const bool RobotPlanningExecution::homeRobot() const {
+        std::vector<double> group_variable_values;
+        move_group_.getCurrentState()->copyJointGroupPositions(
+                move_group_.getCurrentState()->getRobotModel()->getJointModelGroup(move_group_.getName()),
+                group_variable_values);
+        group_variable_values[0] = 0.0;
+        group_variable_values[1] = -M_PI / 2;
+        group_variable_values[2] = M_PI / 2;
+        group_variable_values[3] = 0.0;
+        group_variable_values[4] = M_PI / 2;
+        group_variable_values[5] = 0.0;
+        move_group_.setJointValueTarget(group_variable_values);
+        moveit::planning_interface::MoveGroup::Plan home_plan;
+        bool success = move_group_.plan(home_plan);
+
+        ROS_INFO(
+                "Visualizing homing plan (joint space home goal) %s \n\t Joints: A1=%f, A2=%f, A3=%f,\n\t\t A4=%f, A5=%f, A6=%f",
+                success ? "" : "FAILED",
+                group_variable_values[0],
+                group_variable_values[1],
+                group_variable_values[2],
+                group_variable_values[3],
+                group_variable_values[4],
+                group_variable_values[5]);
+        return success;
+    }
+
+    const void RobotPlanningExecution::moveRobot(double max_velocity_scale_factor) const {
+        move_group_.setMaxVelocityScalingFactor(max_velocity_scale_factor);
+        ROS_INFO("Executing plan");
+        move_group_.move();
     }
 
 //*********************************************************************************************************************
