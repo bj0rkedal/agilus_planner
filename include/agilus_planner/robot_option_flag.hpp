@@ -46,3 +46,4 @@ inline std::string RobotOptionFlagToString(RobotOptionFlag flag){
 }
 
 #endif // __IRONHIDE__ROBOT_OPTION_FLAG_HPP__
+
