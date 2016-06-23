@@ -1,4 +1,6 @@
 <map id="robot_planning_execution.hpp" name="robot_planning_execution.hpp">
-<area shape="rect" id="node2" href="$robot__movement_8cpp.html" title="robot_movement.cpp" alt="" coords="5,80,149,107"/>
-<area shape="rect" id="node3" href="$robot__planning__execution_8cpp.html" title="robot_planning_execution.cpp" alt="" coords="173,80,368,107"/>
+<area shape="rect" id="node2" href="$robot__planning_8hpp.html" title="robot_planning.hpp" alt="" coords="4,80,133,107"/>
+<area shape="rect" id="node4" href="$robot__movement_8cpp.html" title="robot_movement.cpp" alt="" coords="159,80,303,107"/>
+<area shape="rect" id="node5" href="$robot__planning__execution_8cpp.html" title="robot_planning_execution.cpp" alt="" coords="327,80,521,107"/>
+<area shape="rect" id="node3" href="$robot__planning_8cpp.html" title="robot_planning.cpp" alt="" coords="4,155,133,181"/>
 </map>

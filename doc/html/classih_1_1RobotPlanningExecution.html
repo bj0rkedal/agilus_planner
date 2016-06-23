@@ -60,6 +60,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a22cc41ac1558ab333db96af9d6ff061c"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#a22cc41ac1558ab333db96af9d6ff061c">goToPoseByXYZRPY</a> (const double pos_x, const double pos_y, const double pos_z, const double rot_r, const double rot_p, const double rot_y) const </td></tr>
 <tr class="memdesc:a22cc41ac1558ab333db96af9d6ff061c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the robot go to the target pose.  <a href="#a22cc41ac1558ab333db96af9d6ff061c">More...</a><br/></td></tr>
 <tr class="separator:a22cc41ac1558ab333db96af9d6ff061c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2a925c16f242d0e1064796be470a94"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#a3d2a925c16f242d0e1064796be470a94">goToPosePTP</a> (double x, double y, double z, double roll, double pitch, double yaw) const </td></tr>
+<tr class="memdesc:a3d2a925c16f242d0e1064796be470a94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plans a PTP trajectory in world coordinates and commands the robot to move.  <a href="#a3d2a925c16f242d0e1064796be470a94">More...</a><br/></td></tr>
+<tr class="separator:a3d2a925c16f242d0e1064796be470a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab63b3e714f936f60a1cf7c43c43c3906"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#ab63b3e714f936f60a1cf7c43c43c3906">goToRelativePoseByQuaternion</a> (const double rot_x, const double rot_y, const double rot_z, const double rot_w) const </td></tr>
 <tr class="memdesc:ab63b3e714f936f60a1cf7c43c43c3906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the robot go to the relative pose.  <a href="#ab63b3e714f936f60a1cf7c43c43c3906">More...</a><br/></td></tr>
 <tr class="separator:ab63b3e714f936f60a1cf7c43c43c3906"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -72,6 +75,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac021e8f93b78904abf150c08bb435c4c"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#ac021e8f93b78904abf150c08bb435c4c">goToRelativePoseByXYZRPY</a> (const double pos_x, const double pos_y, const double pos_z, const double rot_r, const double rot_p, const double rot_y) const </td></tr>
 <tr class="memdesc:ac021e8f93b78904abf150c08bb435c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the robot go to the relative pose.  <a href="#ac021e8f93b78904abf150c08bb435c4c">More...</a><br/></td></tr>
 <tr class="separator:ac021e8f93b78904abf150c08bb435c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0712bff12c395736126b9afd8d24957"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#ad0712bff12c395736126b9afd8d24957">goToRelativePosePTP</a> (double x, double y, double z, double roll, double pitch, double yaw) const </td></tr>
+<tr class="memdesc:ad0712bff12c395736126b9afd8d24957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plans a relative PTP trajectory from current pose and commands the robot to move.  <a href="#ad0712bff12c395736126b9afd8d24957">More...</a><br/></td></tr>
+<tr class="separator:ad0712bff12c395736126b9afd8d24957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a186d3d154c4090612342033413ad391f"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#a186d3d154c4090612342033413ad391f">homeRobot</a> () const </td></tr>
+<tr class="memdesc:a186d3d154c4090612342033413ad391f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plans a trajectory from current pose to home pose and executes it.  <a href="#a186d3d154c4090612342033413ad391f">More...</a><br/></td></tr>
+<tr class="separator:a186d3d154c4090612342033413ad391f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8536f7f4dca77c8655c6de3fff471af"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#ac8536f7f4dca77c8655c6de3fff471af">moveRobot</a> (double max_velocity_scale_factor) const </td></tr>
+<tr class="memdesc:ac8536f7f4dca77c8655c6de3fff471af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command the robot to execute the current plan of the move group.  <a href="#ac8536f7f4dca77c8655c6de3fff471af">More...</a><br/></td></tr>
+<tr class="separator:ac8536f7f4dca77c8655c6de3fff471af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a765a7f355e6e126010b4e73e61490fbf"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#a765a7f355e6e126010b4e73e61490fbf">planPoseByPose</a> (const geometry_msgs::Pose &amp;target_pose, moveit::planning_interface::MoveGroup::Plan *trajectory_plan=NULL) const </td></tr>
 <tr class="memdesc:a765a7f355e6e126010b4e73e61490fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plans the trajectory to the target pose.  <a href="#a765a7f355e6e126010b4e73e61490fbf">More...</a><br/></td></tr>
 <tr class="separator:a765a7f355e6e126010b4e73e61490fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -87,6 +99,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a654b2314b5ac5b6d8c12502de0dd42de"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#a654b2314b5ac5b6d8c12502de0dd42de">planPoseByXYZRPY</a> (const double pos_x, const double pos_y, const double pos_z, const double rot_r, const double rot_p, const double rot_y, moveit::planning_interface::MoveGroup::Plan *trajectory_plan=NULL) const </td></tr>
 <tr class="memdesc:a654b2314b5ac5b6d8c12502de0dd42de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plans the trajectory to the target pose.  <a href="#a654b2314b5ac5b6d8c12502de0dd42de">More...</a><br/></td></tr>
 <tr class="separator:a654b2314b5ac5b6d8c12502de0dd42de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319b0b2f45737f08dc9a61063f003c4a"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#a319b0b2f45737f08dc9a61063f003c4a">planPosePTP</a> (double x, double y, double z, double roll, double pitch, double yaw) const </td></tr>
+<tr class="memdesc:a319b0b2f45737f08dc9a61063f003c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plans a PTP trajectory in world coordinates. The trajectory is visualized in MoveIt!  <a href="#a319b0b2f45737f08dc9a61063f003c4a">More...</a><br/></td></tr>
+<tr class="separator:a319b0b2f45737f08dc9a61063f003c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b09a3eeaa60cfa67173a0cce114479d"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#a6b09a3eeaa60cfa67173a0cce114479d">planRelativePoseByQuaternion</a> (const double rot_x, const double rot_y, const double rot_z, const double rot_w, moveit::planning_interface::MoveGroup::Plan *trajectory_plan=NULL) const </td></tr>
 <tr class="memdesc:a6b09a3eeaa60cfa67173a0cce114479d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plans the trajectory to the relative pose.  <a href="#a6b09a3eeaa60cfa67173a0cce114479d">More...</a><br/></td></tr>
 <tr class="separator:a6b09a3eeaa60cfa67173a0cce114479d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,6 +114,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2355e2ab91d15051b4c396b4afaf0662"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#a2355e2ab91d15051b4c396b4afaf0662">planRelativePoseByXYZRPY</a> (const double pos_x, const double pos_y, const double pos_z, const double rot_r, const double rot_p, const double rot_y, moveit::planning_interface::MoveGroup::Plan *trajectory_plan=NULL) const </td></tr>
 <tr class="memdesc:a2355e2ab91d15051b4c396b4afaf0662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plans the trajectory to the relative pose.  <a href="#a2355e2ab91d15051b4c396b4afaf0662">More...</a><br/></td></tr>
 <tr class="separator:a2355e2ab91d15051b4c396b4afaf0662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a933a0f5791aa968da8e5eda002374732"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#a933a0f5791aa968da8e5eda002374732">planRelativePosePTP</a> (double x, double y, double z, double roll, double pitch, double yaw) const </td></tr>
+<tr class="memdesc:a933a0f5791aa968da8e5eda002374732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plans a relative PTP trajectory from current pose. The trajectory is visualized in MoveIt!  <a href="#a933a0f5791aa968da8e5eda002374732">More...</a><br/></td></tr>
+<tr class="separator:a933a0f5791aa968da8e5eda002374732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addadb59e4f23de7a9c4e6989b38bd1e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classih_1_1RobotPlanningExecution.html#addadb59e4f23de7a9c4e6989b38bd1e9">RobotPlanningExecution</a> (const std::string groupname=&quot;manipulator&quot;, const double max_vel_scale_factor=0.5, const int num_planning_attempts=5, const int planning_time=10, const <a class="el" href="namespaceih.html#a29def554bea5356528bf13814aff909a">RobotOptionFlag</a> options=<a class="el" href="namespaceih.html#a29def554bea5356528bf13814aff909aac4ec2d7f49f601252c062af8201e1b95">ROBOT_OPTION_NONE</a>)</td></tr>
 <tr class="memdesc:addadb59e4f23de7a9c4e6989b38bd1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the class for a specific robot.  <a href="#addadb59e4f23de7a9c4e6989b38bd1e9">More...</a><br/></td></tr>
 <tr class="separator:addadb59e4f23de7a9c4e6989b38bd1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,7 +146,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p>A class for planning and executing trajectories for a given robot. </p>
 <p>The <a class="el" href="classih_1_1RobotPlanningExecution.html" title="A class for planning and executing trajectories for a given robot. ">RobotPlanningExecution</a> class can plan and execute trajectories for a given robot. It currently can only perform linear movement. </p>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8hpp_source.html#l00032">32</a> of file <a class="el" href="robot__planning__execution_8hpp_source.html">robot_planning_execution.hpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8hpp_source.html#l00033">33</a> of file <a class="el" href="robot__planning__execution_8hpp_source.html">robot_planning_execution.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="addadb59e4f23de7a9c4e6989b38bd1e9"></a>
 <div class="memitem">
@@ -184,7 +202,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00012">12</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00013">13</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -245,7 +263,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The resulting quaternion </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00332">332</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00462">462</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -265,7 +283,7 @@ Private Attributes</h2></td></tr>
 <p>Gets the current pose of the robot. </p>
 <dl class="section return"><dt>Returns</dt><dd>The current pose of the robot </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00039">39</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00040">40</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -292,7 +310,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00166">166</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00171">171</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -345,7 +363,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00234">234</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00239">239</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -390,7 +408,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00217">217</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00222">222</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -435,7 +453,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00200">200</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00205">205</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -501,7 +519,73 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00182">182</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00187">187</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3d2a925c16f242d0e1064796be470a94"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool ih::RobotPlanningExecution::goToPosePTP </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>roll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>yaw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Plans a PTP trajectory in world coordinates and commands the robot to move. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The target world x coordinate. </td></tr>
+    <tr><td class="paramname">y</td><td>The target world y coordinate. </td></tr>
+    <tr><td class="paramname">z</td><td>The target world z coordinate. </td></tr>
+    <tr><td class="paramname">roll</td><td>The target roll in radians. </td></tr>
+    <tr><td class="paramname">pitch</td><td>The target pitch in radians. </td></tr>
+    <tr><td class="paramname">yaw</td><td>The target yaw in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the plan is successful and feasible. False if the plan is not successful. </dd></dl>
+
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00374">374</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -554,7 +638,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00303">303</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00308">308</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -599,7 +683,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00286">286</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00291">291</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -644,7 +728,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00269">269</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00274">274</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -710,7 +794,93 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00251">251</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00256">256</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0712bff12c395736126b9afd8d24957"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool ih::RobotPlanningExecution::goToRelativePosePTP </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>roll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>yaw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Plans a relative PTP trajectory from current pose and commands the robot to move. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The relative x to be added. </td></tr>
+    <tr><td class="paramname">y</td><td>The relative y to be added. </td></tr>
+    <tr><td class="paramname">z</td><td>The relative z to be added. </td></tr>
+    <tr><td class="paramname">roll</td><td>The relative roll in radians to be added. </td></tr>
+    <tr><td class="paramname">pitch</td><td>The relative pitch in radians to be added. </td></tr>
+    <tr><td class="paramname">yaw</td><td>The relative yaw in radians to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the plan is successful and feasible. False if the plan is not successful. </dd></dl>
+
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00396">396</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a186d3d154c4090612342033413ad391f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool ih::RobotPlanningExecution::homeRobot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Plans a trajectory from current pose to home pose and executes it. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the plan is successful and feasible. False if the plan is not successful. </dd></dl>
+
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00418">418</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -745,7 +915,33 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if the option is flagged, else false </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00323">323</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00453">453</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8536f7f4dca77c8655c6de3fff471af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void ih::RobotPlanningExecution::moveRobot </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>max_velocity_scale_factor</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Command the robot to execute the current plan of the move group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max_velocity_scale_factor</td><td>The movement velocity of the robot. 0.1 is equal to 10%. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00444">444</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -783,7 +979,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00046">46</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00050">50</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -842,7 +1038,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00142">142</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00147">147</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -894,7 +1090,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00126">126</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00131">131</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -946,7 +1142,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00106">106</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00111">111</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -1019,7 +1215,73 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00082">82</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00087">87</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a319b0b2f45737f08dc9a61063f003c4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool ih::RobotPlanningExecution::planPosePTP </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>roll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>yaw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Plans a PTP trajectory in world coordinates. The trajectory is visualized in MoveIt! </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The target world x coordinate. </td></tr>
+    <tr><td class="paramname">y</td><td>The target world y coordinate. </td></tr>
+    <tr><td class="paramname">z</td><td>The target world z coordinate. </td></tr>
+    <tr><td class="paramname">roll</td><td>The target roll in radians. </td></tr>
+    <tr><td class="paramname">pitch</td><td>The target pitch in radians. </td></tr>
+    <tr><td class="paramname">yaw</td><td>The target yaw in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the plan is successful and feasible. False if the plan is not successful. </dd></dl>
+
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00328">328</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -1078,7 +1340,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00153">153</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00158">158</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -1130,7 +1392,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00134">134</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00139">139</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -1182,7 +1444,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00116">116</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00121">121</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -1255,7 +1517,73 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The fraction of the plan which is feasible. </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00094">94</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00099">99</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a933a0f5791aa968da8e5eda002374732"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool ih::RobotPlanningExecution::planRelativePosePTP </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>roll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>yaw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Plans a relative PTP trajectory from current pose. The trajectory is visualized in MoveIt! </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The relative x to be added. </td></tr>
+    <tr><td class="paramname">y</td><td>The relative y to be added. </td></tr>
+    <tr><td class="paramname">z</td><td>The relative z to be added. </td></tr>
+    <tr><td class="paramname">roll</td><td>The relative roll in radians to be added. </td></tr>
+    <tr><td class="paramname">pitch</td><td>The relative pitch in radians to be added. </td></tr>
+    <tr><td class="paramname">yaw</td><td>The relative yaw in radians to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the plan is successful and feasible. False if the plan is not successful. </dd></dl>
+
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00351">351</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -1308,7 +1636,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The resulting quaternion </dd></dl>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00327">327</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8cpp_source.html#l00457">457</a> of file <a class="el" href="robot__planning__execution_8cpp_source.html">robot_planning_execution.cpp</a>.</p>
 
 </div>
 </div>
@@ -1333,7 +1661,7 @@ Private Attributes</h2></td></tr>
 
 <p>The move group used by MoveIt! </p>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8hpp_source.html#l00298">298</a> of file <a class="el" href="robot__planning__execution_8hpp_source.html">robot_planning_execution.hpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8hpp_source.html#l00359">359</a> of file <a class="el" href="robot__planning__execution_8hpp_source.html">robot_planning_execution.hpp</a>.</p>
 
 </div>
 </div>
@@ -1357,7 +1685,7 @@ Private Attributes</h2></td></tr>
 
 <p>The flag option for the instance. </p>
 
-<p>Definition at line <a class="el" href="robot__planning__execution_8hpp_source.html#l00301">301</a> of file <a class="el" href="robot__planning__execution_8hpp_source.html">robot_planning_execution.hpp</a>.</p>
+<p>Definition at line <a class="el" href="robot__planning__execution_8hpp_source.html#l00362">362</a> of file <a class="el" href="robot__planning__execution_8hpp_source.html">robot_planning_execution.hpp</a>.</p>
 
 </div>
 </div>
@@ -1371,7 +1699,7 @@ Private Attributes</h2></td></tr>
 <hr size="1"><div style="align: right;">
 <a href="http://wiki.ros.org/agilus_planner">agilus_planner</a><br />
 Author(s): </br />
-<small>autogenerated on Tue Jun 7 2016 17:35:28</small>
+<small>autogenerated on Thu Jun 23 2016 13:20:29</small>
 </div>
 </body>
 </html>

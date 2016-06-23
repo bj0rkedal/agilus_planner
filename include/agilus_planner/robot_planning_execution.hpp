@@ -1,5 +1,6 @@
 //
 // Original author: Adam Leon Kleppe
+// Modified by: Asgeir Bjørkedal
 //
 // Used in the Master's thesis for planning and execution of trajectories in MoveIt! for ROS.
 //
@@ -275,7 +276,43 @@ namespace ih {
          */
         const bool planPosePTP(double x, double y, double z, double roll, double pitch, double yaw) const;
 
-        //! Plans a trajectory from current pose to home pose. The trajectory is visalized in MoveIt!
+        //! Plans a relative PTP trajectory from current pose. The trajectory is visualized in MoveIt!
+        /*!
+         * \param x The relative x to be added.
+         * \param y The relative y to be added.
+         * \param z The relative z to be added.
+         * \param roll The relative roll in radians to be added.
+         * \param pitch The relative pitch in radians to be added.
+         * \param yaw The relative yaw in radians to be added.
+         * \return True if the plan is successful and feasible. False if the plan is not successful.
+         */
+        const bool planRelativePosePTP(double x, double y, double z, double roll, double pitch, double yaw) const;
+
+        //! Plans a PTP trajectory in world coordinates and commands the robot to move.
+        /*!
+         * \param x The target world x coordinate.
+         * \param y The target world y coordinate.
+         * \param z The target world z coordinate.
+         * \param roll The target roll in radians.
+         * \param pitch The target pitch in radians.
+         * \param yaw The target yaw in radians.
+         * \return True if the plan is successful and feasible. False if the plan is not successful.
+         */
+        const bool goToPosePTP(double x, double y, double z, double roll, double pitch, double yaw) const;
+
+        //! Plans a relative PTP trajectory from current pose and commands the robot to move.
+        /*!
+         * \param x The relative x to be added.
+         * \param y The relative y to be added.
+         * \param z The relative z to be added.
+         * \param roll The relative roll in radians to be added.
+         * \param pitch The relative pitch in radians to be added.
+         * \param yaw The relative yaw in radians to be added.
+         * \return True if the plan is successful and feasible. False if the plan is not successful.
+         */
+        const bool goToRelativePosePTP(double x, double y, double z, double roll, double pitch, double yaw) const;
+
+        //! Plans a trajectory from current pose to home pose and executes it.
         /*!
          * \return True if the plan is successful and feasible. False if the plan is not successful.
          */

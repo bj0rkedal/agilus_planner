@@ -1,5 +1,6 @@
 //
 // Original author: Adam Leon Kleppe
+// Modified by: Asgeir Bjørkedal
 //
 // Used in the Master's thesis for planning and execution of trajectories in MoveIt! for ROS.
 //
@@ -43,7 +44,7 @@ namespace ih {
 //*********************************************************************************************************************
 // LIN
 //*********************************************************************************************************************
-// All below plan functions will plan a linear trajectory to the give pose and output the resulting plan
+// All below plan functions will plan a linear trajectory to the given pose and output the resulting plan
 // in the trajectory_plan variable.
 // The returned value is the fraction of the plan which is feasible. 
     const double    RobotPlanningExecution::planPoseByPose(
@@ -347,6 +348,73 @@ namespace ih {
         return success;
     }
 
+    const bool RobotPlanningExecution::planRelativePosePTP(double x, double y, double z, double roll, double pitch,
+                                                           double yaw) const {
+        geometry_msgs::Pose target_pose = this->getCurrentPose();
+        target_pose.orientation = this->AddRPYToQuaternion(roll, pitch, yaw, target_pose.orientation);
+        target_pose.position.x += x;
+        target_pose.position.y += y;
+        target_pose.position.z += z;
+        move_group_.setPoseTarget(target_pose);
+        moveit::planning_interface::MoveGroup::Plan pose_plan;
+        bool success = move_group_.plan(pose_plan);
+
+        ROS_INFO("Visualizing PTP plan (pose goal) %s \n\t Pos: x=%f, y=%f, z=%f,\n\t Rot: x=%f, y=%f, z=%f, w=%f",
+                 success ? "" : "FAILED",
+                 target_pose.position.x,
+                 target_pose.position.y,
+                 target_pose.position.z,
+                 target_pose.orientation.x,
+                 target_pose.orientation.y,
+                 target_pose.orientation.z,
+                 target_pose.orientation.w);
+        return success;
+    }
+
+    const bool RobotPlanningExecution::goToPosePTP(double x, double y, double z, double roll, double pitch,
+                                                   double yaw) const {
+        geometry_msgs::Pose target_pose;
+        target_pose.orientation = QuaternionFromRPY(roll, pitch, yaw);
+        target_pose.position.x = x;
+        target_pose.position.y = y;
+        target_pose.position.z = z;
+        move_group_.setPoseTarget(target_pose);
+        bool success = move_group_.move();
+
+        ROS_INFO("Executing PTP plan (pose goal) %s \n\t Pos: x=%f, y=%f, z=%f,\n\t Rot: x=%f, y=%f, z=%f, w=%f",
+                 success ? "" : "FAILED",
+                 target_pose.position.x,
+                 target_pose.position.y,
+                 target_pose.position.z,
+                 target_pose.orientation.x,
+                 target_pose.orientation.y,
+                 target_pose.orientation.z,
+                 target_pose.orientation.w);
+        return success;
+    }
+
+    const bool RobotPlanningExecution::goToRelativePosePTP(double x, double y, double z, double roll, double pitch,
+                                                           double yaw) const {
+        geometry_msgs::Pose target_pose = this->getCurrentPose();
+        target_pose.orientation = this->AddRPYToQuaternion(roll, pitch, yaw, target_pose.orientation);
+        target_pose.position.x += x;
+        target_pose.position.y += y;
+        target_pose.position.z += z;
+        move_group_.setPoseTarget(target_pose);
+        bool success = move_group_.move();
+
+        ROS_INFO("Executing PTP plan (pose goal) %s \n\t Pos: x=%f, y=%f, z=%f,\n\t Rot: x=%f, y=%f, z=%f, w=%f",
+                 success ? "" : "FAILED",
+                 target_pose.position.x,
+                 target_pose.position.y,
+                 target_pose.position.z,
+                 target_pose.orientation.x,
+                 target_pose.orientation.y,
+                 target_pose.orientation.z,
+                 target_pose.orientation.w);
+        return success;
+    }
+
     const bool RobotPlanningExecution::homeRobot() const {
         std::vector<double> group_variable_values;
         move_group_.getCurrentState()->copyJointGroupPositions(
@@ -359,11 +427,10 @@ namespace ih {
         group_variable_values[4] = M_PI / 2;
         group_variable_values[5] = 0.0;
         move_group_.setJointValueTarget(group_variable_values);
-        moveit::planning_interface::MoveGroup::Plan home_plan;
-        bool success = move_group_.plan(home_plan);
+        bool success = move_group_.move();
 
         ROS_INFO(
-                "Visualizing homing plan (joint space home goal) %s \n\t Joints: A1=%f, A2=%f, A3=%f,\n\t\t A4=%f, A5=%f, A6=%f",
+                "Executing homing plan (joint space home goal) %s \n\t Joints: A1=%f, A2=%f, A3=%f,\n\t\t A4=%f, A5=%f, A6=%f",
                 success ? "" : "FAILED",
                 group_variable_values[0],
                 group_variable_values[1],
