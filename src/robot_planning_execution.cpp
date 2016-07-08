@@ -26,6 +26,7 @@ namespace ih {
         this->move_group_.setMaxVelocityScalingFactor(max_vel_scale_factor);
         this->move_group_.setNumPlanningAttempts(num_planning_attempts);
         this->move_group_.setPlanningTime(planning_time);
+	this->move_group_.setPlannerId("RRTConnectkConfigDefault");
 
         if (this->isOption(ROBOT_OPTION_VERBOSE_INFO)) {
             ROS_INFO("Initialized robot");
